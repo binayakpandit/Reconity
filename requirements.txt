@@ -1,0 +1,26 @@
+# BINAYAK PANDIT
+
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+jinja2
+plotly
+pandas
+matplotlib
+bleach
+bandit
+python-dotenv
+scapy
+requests
+httpx
+nuclei
+nikto
+subfinder
+nmap
+pytest
+flake8
+prometheus_client
+huggingface-hub
+reportlab
+PyMuPDF
