@@ -1,6 +1,6 @@
-# Reconiti
+# Reconitiy
 
-**Reconiti** is an all-in-one modular cybersecurity suite for vulnerability scanning, packet analysis, recon, SOC automation, AI assistance, reporting, and compliance.
+**Reconity** is an all-in-one modular cybersecurity suite for vulnerability scanning, packet analysis, recon, SOC automation, AI assistance, reporting, and compliance.
 
 ## Features
 
@@ -17,3 +17,4 @@
 cp .env.example .env
 pip install -r requirements.txt
 python run.py
+
