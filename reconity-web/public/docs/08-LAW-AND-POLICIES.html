@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconity - Law & Policies Integration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --reconity-dark: #0f172a;
+            --reconity-blue: #3b82f6;
+            --reconity-orange: #f59e0b;
+            --reconity-text: #e2e8f0;
+            --reconity-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--reconity-dark);
+            color: var(--reconity-text);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .header {
+            text-align: center;
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(245, 158, 11, 0.3);
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--reconity-orange);
+        }
+
+        .header p {
+            color: var(--reconity-muted);
+            margin-top: 0.5rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .section h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--reconity-orange);
+        }
+
+        .section p,
+        .section li {
+            color: var(--reconity-muted);
+            margin-bottom: 1rem;
+        }
+
+        .section ul {
+            padding-left: 1.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th,
+        td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        th {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--reconity-orange);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .badge-green {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .badge-blue {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+
+        .badge-purple {
+            background: rgba(139, 92, 246, 0.2);
+            color: #8b5cf6;
+        }
+
+        .warning {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid var(--reconity-orange);
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+
+        .nepal-highlight {
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .nepal-highlight h4 {
+            color: #f87171;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 3rem;
+            border-top: 1px solid rgba(245, 158, 11, 0.2);
+            margin-top: 3rem;
+        }
+
+        .footer-text {
+            color: var(--reconity-muted);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="logo.png" alt="Reconity" class="logo">
+            <h1>⚖️ Law & Policies Integration</h1>
+            <p>Regulatory Compliance & Legal Framework</p>
+        </div>
+
+        <div class="section">
+            <h2>1. Regulatory Landscape</h2>
+            <p>
+                Reconity operates within a complex global regulatory environment with particular focus on Nepal's
+                legal framework. This document outlines our compliance strategy across key jurisdictions.
+            </p>
+        </div>
+
+        <!-- Nepal-Specific Laws Section -->
+        <div class="section">
+            <h2>2. Nepal Legal Framework 🇳🇵</h2>
+            <p>
+                As a Nepal-based cybersecurity platform, Reconity is subject to and complies with the following
+                Nepali laws and regulations:
+            </p>
+
+            <div class="nepal-highlight">
+                <h4>🏛️ Constitution of Nepal 2015</h4>
+                <p><strong>Article 27</strong> guarantees the fundamental right to privacy for all citizens. This forms
+                    the constitutional basis for all data protection in Nepal.</p>
+            </div>
+
+            <h3>2.1 Electronic Transaction Act 2063 (2006/2008)</h3>
+            <p>
+                The <strong>ETA 2063</strong> is the foundational law governing cyber activities in Nepal. It provides:
+            </p>
+            <ul>
+                <li>Legal recognition of electronic records and digital signatures</li>
+                <li>Framework for secure electronic transactions</li>
+                <li>Definitions and penalties for cyber offenses including:
+                    <ul>
+                        <li><strong>Section 47:</strong> Unauthorized access (hacking) - up to 3 years imprisonment or
+                            NPR 200,000 fine</li>
+                        <li>Spreading viruses/malware - criminal penalties</li>
+                        <li>Publishing illegal electronic content - up to 5 years or NPR 100,000 fine</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="warning">
+                <strong>⚠️ User Responsibility:</strong> Users must only scan assets they own or have written
+                authorization to test.
+                Unauthorized scanning violates ETA Section 47 and may result in criminal prosecution.
+            </div>
+
+            <h3>2.2 Individual Privacy Act 2018 (2075)</h3>
+            <p>
+                The <strong>Individual Privacy Act</strong> is Nepal's primary privacy statute establishing:
+            </p>
+            <ul>
+                <li>Recognition of individual right to privacy</li>
+                <li>Consent requirements for personal data collection</li>
+                <li>Obligations for public bodies and data handlers</li>
+                <li>Penalties for unauthorized disclosure of personal information</li>
+            </ul>
+
+            <h3>2.3 Individual Privacy Regulation 2020 (2077)</h3>
+            <p>Provides implementation guidance for the Privacy Act of 2018.</p>
+
+            <h3>2.4 Data Act 2079 (2022)</h3>
+            <p>
+                Enacted October 2022, this Act regulates:
+            </p>
+            <ul>
+                <li>Generation, storage, and publication of data</li>
+                <li>Obligations for data controllers, producers, and users</li>
+                <li>Framework for data governance in Nepal</li>
+            </ul>
+
+            <h3>2.5 Muluki Penal Code 2074 (2017)</h3>
+            <p>
+                Criminalizes privacy violations including:
+            </p>
+            <ul>
+                <li>Unauthorized collection or disclosure of personal data</li>
+                <li>Unauthorized recording of conversations</li>
+                <li>Photo/video tampering and misuse</li>
+                <li>Electronic harassment</li>
+            </ul>
+
+            <h3>2.6 National Cyber Security Policy 2023 (2080)</h3>
+            <p>
+                Approved August 2023 by the Nepal Cabinet, this policy establishes:
+            </p>
+            <ul>
+                <li>Strategic roadmap for protecting digital infrastructure</li>
+                <li>Information and data security standards</li>
+                <li>Targets for improving Nepal's Global Cyber Security Index score</li>
+                <li>Public awareness and capacity building initiatives</li>
+            </ul>
+
+            <h3>2.7 NTA Cybersecurity Bye-Law 2077 (2020)</h3>
+            <p>
+                Issued by Nepal Telecommunications Authority (NTA), mandating:
+            </p>
+            <ul>
+                <li>Cybersecurity standards for ISPs and telecom providers</li>
+                <li>Regular security audits</li>
+                <li>Incident response team requirements</li>
+                <li>Data protection measures</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>3. International Compliance Matrix</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Regulation</th>
+                        <th>Jurisdiction</th>
+                        <th>Key Requirements</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ETA 2063</strong></td>
+                        <td>Nepal 🇳🇵</td>
+                        <td>Electronic transactions, cyber offenses</td>
+                        <td><span class="badge badge-green">Compliant</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Privacy Act 2075</strong></td>
+                        <td>Nepal 🇳🇵</td>
+                        <td>Personal data protection, consent</td>
+                        <td><span class="badge badge-green">Compliant</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Data Act 2079</strong></td>
+                        <td>Nepal 🇳🇵</td>
+                        <td>Data governance, storage, publication</td>
+                        <td><span class="badge badge-green">Compliant</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>NCSP 2080</strong></td>
+                        <td>Nepal 🇳🇵</td>
+                        <td>Cybersecurity standards</td>
+                        <td><span class="badge badge-green">Aligning</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>GDPR</strong></td>
+                        <td>European Union</td>
+                        <td>Data protection, right to erasure</td>
+                        <td><span class="badge badge-green">Compliant</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>CCPA</strong></td>
+                        <td>California, USA</td>
+                        <td>Consumer data rights</td>
+                        <td><span class="badge badge-green">Compliant</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>ISO 27001</strong></td>
+                        <td>International</td>
+                        <td>Information security management</td>
+                        <td><span class="badge badge-purple">Planned Q3</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>SOC 2 Type II</strong></td>
+                        <td>International</td>
+                        <td>Security, availability, confidentiality</td>
+                        <td><span class="badge badge-purple">Planned Q4</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>4. Legal Use of Scanning Tools</h2>
+            <div class="warning">
+                <strong>⚠️ Critical:</strong> Under Nepal's Electronic Transaction Act 2063 (Section 47) and Muluki
+                Penal Code 2074,
+                unauthorized access to computer systems is a criminal offense punishable by imprisonment and fines.
+            </div>
+            <p>Reconity requires users to:</p>
+            <ul>
+                <li>Confirm ownership or written authorization before adding targets</li>
+                <li>Accept Terms of Service acknowledging legal responsibilities</li>
+                <li>Maintain documentation of authorization for enterprise accounts</li>
+                <li>Only scan domains within their legal scope</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>5. Anti-Abuse Measures</h2>
+            <ul>
+                <li>Rate limiting on API endpoints to prevent scanning abuse</li>
+                <li>Logging of all scan requests with user attribution</li>
+                <li>Automated detection of suspicious scanning patterns</li>
+                <li>Cooperation with Nepal Police Cyber Bureau upon valid legal process</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>6. Dispute Resolution</h2>
+            <p>
+                Disputes arising from use of the Service shall be resolved through arbitration in accordance with
+                the rules of the <strong>Nepal Arbitration Council</strong>, with the seat of arbitration in Kathmandu,
+                Nepal.
+                The governing law shall be the laws of the Federal Democratic Republic of Nepal.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>7. References</h2>
+            <ul>
+                <li><a href="https://nta.gov.np" style="color: var(--reconity-blue);">Nepal Telecommunications Authority
+                        (NTA)</a></li>
+                <li><a href="https://moha.gov.np" style="color: var(--reconity-blue);">Ministry of Home Affairs - Cyber
+                        Bureau</a></li>
+                <li>Electronic Transaction Act 2063 (Full Text)</li>
+                <li>Individual Privacy Act 2018 (Full Text)</li>
+                <li>National Cyber Security Policy 2023 (Full Text)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>8. Contact</h2>
+            <p>
+                <strong>Legal Department:</strong> legal@reconity.tech<br>
+                <strong>Compliance Officer:</strong> compliance@reconity.tech<br>
+                <strong>Address:</strong> Reconity Technologies, Kathmandu, Nepal
+            </p>
+        </div>
+
+        <div class="footer">
+            <img src="logo.png" alt="Reconity" style="width: 48px; opacity: 0.5; margin-bottom: 1rem;">
+            <p class="footer-text">© 2026 Reconity Technologies. All Rights Reserved.</p>
+            <p class="footer-text">Last Updated: January 2026 • Version 2.0 (Nepal Laws Added)</p>
+        </div>
+    </div>
+</body>
+
+</html>

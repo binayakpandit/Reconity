@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  role      String   @default("ANALYST")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  targets   Target[]
+}
+
+model Target {
+  id        String   @id @default(uuid())
+  domain    String   @unique
+  status    String   @default("PENDING") // PENDING, SCANNED, ERROR
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  results   ScanResult[]
+}
+
+model ScanResult {
+  id        String   @id @default(uuid())
+  targetId  String
+  target    Target   @relation(fields: [targetId], references: [id])
+  scanType  String   // "QUICK" or "FULL"
+  summary   String   // JSON string of findings summary
+  details   String   // JSON string of full results (e.g. subdomains list)
+  vulnScore Int      @default(0) // 0-100 Risk Score
+  createdAt DateTime @default(now())
+}
+

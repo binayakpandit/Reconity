@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconity - User Manual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --reconity-dark: #0f172a;
+            --reconity-blue: #3b82f6;
+            --reconity-cyan: #06b6d4;
+            --reconity-text: #e2e8f0;
+            --reconity-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--reconity-dark);
+            color: var(--reconity-text);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .header {
+            text-align: center;
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(6, 182, 212, 0.3);
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--reconity-cyan);
+        }
+
+        .header p {
+            color: var(--reconity-muted);
+            margin-top: 0.5rem;
+        }
+
+        .toc {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .toc h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--reconity-cyan);
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+        }
+
+        .toc a {
+            color: var(--reconity-text);
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            color: var(--reconity-cyan);
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .section h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--reconity-cyan);
+        }
+
+        .section p,
+        .section li {
+            color: var(--reconity-muted);
+            margin-bottom: 1rem;
+        }
+
+        .section ul,
+        .section ol {
+            padding-left: 1.5rem;
+        }
+
+        .step {
+            background: rgba(6, 182, 212, 0.1);
+            border-left: 4px solid var(--reconity-cyan);
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+        }
+
+        .step strong {
+            color: var(--reconity-cyan);
+        }
+
+        .tip {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid #10b981;
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+        }
+
+        .tip strong {
+            color: #10b981;
+        }
+
+        .warning {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid #f59e0b;
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+        }
+
+        .warning strong {
+            color: #f59e0b;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 3rem;
+            border-top: 1px solid rgba(6, 182, 212, 0.2);
+            margin-top: 3rem;
+        }
+
+        .footer-text {
+            color: var(--reconity-muted);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="logo.png" alt="Reconity" class="logo">
+            <h1>📖 User Manual</h1>
+            <p>Complete Guide to Using the Reconity Platform</p>
+        </div>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#getting-started">1. Getting Started</a></li>
+                <li><a href="#dashboard">2. Dashboard Overview</a></li>
+                <li><a href="#targets">3. Managing Targets</a></li>
+                <li><a href="#scanning">4. Running Scans</a></li>
+                <li><a href="#reports">5. Viewing Reports</a></li>
+                <li><a href="#account">6. Account Settings</a></li>
+            </ul>
+        </div>
+
+        <div class="section" id="getting-started">
+            <h2>1. Getting Started</h2>
+
+            <h3>1.1 Creating an Account</h3>
+            <div class="step">
+                <strong>Step 1:</strong> Navigate to the Reconity login page at <code>https://reconity.tech</code>
+            </div>
+            <div class="step">
+                <strong>Step 2:</strong> Click "Register" and enter your email address and a strong password
+            </div>
+            <div class="step">
+                <strong>Step 3:</strong> Verify your email (if required) and log in
+            </div>
+
+            <h3>1.2 Logging In</h3>
+            <p>Enter your registered email and password on the login page. Upon successful authentication, you will be
+                redirected to the Dashboard.</p>
+
+            <div class="tip">
+                <strong>💡 Tip:</strong> Your session remains active for 24 hours. You'll be automatically redirected to
+                the dashboard if you're already logged in.
+            </div>
+        </div>
+
+        <div class="section" id="dashboard">
+            <h2>2. Dashboard Overview</h2>
+            <p>The Dashboard provides a high-level view of your security posture:</p>
+            <ul>
+                <li><strong>Total Targets:</strong> Number of domains you're monitoring</li>
+                <li><strong>Active Scans:</strong> Scans currently in progress</li>
+                <li><strong>Last Scan:</strong> Most recent scan activity</li>
+            </ul>
+            <p>Use the sidebar to navigate between sections: Dashboard, Targets, and Reports.</p>
+        </div>
+
+        <div class="section" id="targets">
+            <h2>3. Managing Targets</h2>
+
+            <h3>3.1 Adding a Target</h3>
+            <div class="step">
+                <strong>Step 1:</strong> Click "Targets" in the sidebar
+            </div>
+            <div class="step">
+                <strong>Step 2:</strong> Enter the domain name (e.g., <code>example.com</code>) in the input field
+            </div>
+            <div class="step">
+                <strong>Step 3:</strong> Click "Add Target"
+            </div>
+
+            <div class="warning">
+                <strong>⚠️ Important:</strong> Only add domains you own or have explicit authorization to scan.
+                Unauthorized scanning is illegal.
+            </div>
+
+            <h3>3.2 Viewing Targets</h3>
+            <p>All added targets appear in a list showing the domain name and current status (IDLE, QUEUED, SCANNING,
+                COMPLETED, or FAILED).</p>
+        </div>
+
+        <div class="section" id="scanning">
+            <h2>4. Running Scans</h2>
+
+            <h3>4.1 Quick Scan (OSINT)</h3>
+            <p>Quick Scan uses Certificate Transparency logs to discover subdomains passively.</p>
+            <div class="step">
+                <strong>How to Run:</strong> Click the "Quick Scan" button next to any target. Results appear
+                immediately.
+            </div>
+            <p><strong>Benefits:</strong> Fast, non-intrusive, leaves no trace on target infrastructure.</p>
+
+            <h3>4.2 Full Scan (Active)</h3>
+            <p>Full Scan performs deep DNS enumeration using multiple sources and tools.</p>
+            <div class="step">
+                <strong>How to Run:</strong> Click the "Full Scan" button. The scan is queued and processed in the
+                background.
+            </div>
+            <p><strong>Duration:</strong> Full scans may take several minutes depending on the domain size.</p>
+
+            <div class="tip">
+                <strong>💡 Tip:</strong> Start with a Quick Scan for immediate results, then run a Full Scan for
+                comprehensive coverage.
+            </div>
+        </div>
+
+        <div class="section" id="reports">
+            <h2>5. Viewing Reports</h2>
+
+            <h3>5.1 Accessing Reports</h3>
+            <p>After a scan completes:</p>
+            <div class="step">
+                <strong>Step 1:</strong> Go to the Targets page
+            </div>
+            <div class="step">
+                <strong>Step 2:</strong> Find the target with "COMPLETED" status
+            </div>
+            <div class="step">
+                <strong>Step 3:</strong> Click "View Report" to see detailed findings
+            </div>
+
+            <h3>5.2 Report Contents</h3>
+            <p>Each report includes:</p>
+            <ul>
+                <li><strong>Executive Summary:</strong> High-level overview with risk score</li>
+                <li><strong>Asset Inventory:</strong> Total subdomains discovered</li>
+                <li><strong>Technical Details:</strong> Complete list of discovered subdomains</li>
+            </ul>
+
+            <h3>5.3 Exporting Reports</h3>
+            <p>Click the "Export PDF" button to generate a print-friendly report suitable for sharing with stakeholders.
+            </p>
+        </div>
+
+        <div class="section" id="account">
+            <h2>6. Account Settings</h2>
+
+            <h3>6.1 Logging Out</h3>
+            <p>Click "Logout" at the bottom of the sidebar to securely end your session.</p>
+
+            <h3>6.2 Password Security</h3>
+            <ul>
+                <li>Use a strong, unique password (12+ characters recommended)</li>
+                <li>Never share your credentials</li>
+                <li>Contact support if you suspect unauthorized access</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <img src="logo.png" alt="Reconity" style="width: 48px; opacity: 0.5; margin-bottom: 1rem;">
+            <p class="footer-text">© 2026 Reconity Technologies. All Rights Reserved.</p>
+            <p class="footer-text">User Manual v1.0 • Last Updated: January 2026</p>
+        </div>
+    </div>
+</body>
+
+</html>

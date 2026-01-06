@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconity Tool - User Agreement</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --reconity-dark: #0f172a;
+            --reconity-purple: #8b5cf6;
+            --reconity-text: #e2e8f0;
+            --reconity-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--reconity-dark);
+            color: var(--reconity-text);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .header {
+            text-align: center;
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--reconity-purple);
+        }
+
+        .header p {
+            color: var(--reconity-muted);
+            margin-top: 0.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: var(--reconity-purple);
+            margin-top: 1rem;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .section p,
+        .section li {
+            color: var(--reconity-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .section ul,
+        .section ol {
+            padding-left: 1.5rem;
+        }
+
+        .highlight {
+            background: rgba(139, 92, 246, 0.1);
+            border-left: 4px solid var(--reconity-purple);
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+        }
+
+        .warning {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 4px solid #ef4444;
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+        }
+
+        .critical {
+            background: rgba(239, 68, 68, 0.2);
+            border: 2px solid #ef4444;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .critical h3 {
+            color: #f87171;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 3rem;
+            border-top: 1px solid rgba(139, 92, 246, 0.2);
+            margin-top: 3rem;
+        }
+
+        .footer-text {
+            color: var(--reconity-muted);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="logo.png" alt="Reconity" class="logo">
+            <h1>User Agreement</h1>
+            <p>Reconity Security Platform • Tool/Application</p>
+            <span class="badge">Terms of Service</span>
+        </div>
+
+        <div class="critical">
+            <h3>⚠️ IMPORTANT LEGAL NOTICE</h3>
+            <p>
+                The Reconity Tool performs active and passive security scanning. <strong>You must only scan systems
+                    you own or have EXPLICIT WRITTEN AUTHORIZATION to test.</strong> Unauthorized scanning is illegal
+                under Nepal's Electronic Transaction Act 2063 and international computer crime laws.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>1. Acceptance of Terms</h2>
+            <p>
+                By accessing, downloading, installing, or using the Reconity Security Platform ("Tool"), you acknowledge
+                that you have read, understood, and agree to be bound by this User Agreement ("Agreement").
+            </p>
+            <p><strong>Effective Date:</strong> January 1, 2026</p>
+        </div>
+
+        <div class="section">
+            <h2>2. Description of Service</h2>
+            <p>
+                The Reconity Tool is a cybersecurity platform providing:
+            </p>
+            <ul>
+                <li>Subdomain enumeration and asset discovery</li>
+                <li>Vulnerability scanning and assessment</li>
+                <li>Security reporting and analytics</li>
+                <li>API access for integration</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>3. Authorized Use Only</h2>
+            <div class="warning">
+                <strong>CRITICAL:</strong> You represent and warrant that for every target you add or scan:
+            </div>
+            <ol>
+                <li>You are the legal owner of the target domain/system, OR</li>
+                <li>You have obtained explicit written authorization from the owner, OR</li>
+                <li>You are authorized by law to conduct such scans (e.g., law enforcement with warrant)</li>
+            </ol>
+            <p>
+                Reconity reserves the right to suspend accounts suspected of unauthorized scanning and cooperate
+                with law enforcement investigations.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>4. User Responsibilities</h2>
+            <p>You agree to:</p>
+            <ul>
+                <li>Maintain the confidentiality of your account credentials</li>
+                <li>Use strong, unique passwords</li>
+                <li>Notify Reconity immediately of any unauthorized account access</li>
+                <li>Comply with all applicable local, national, and international laws</li>
+                <li>Not use the Tool for malicious purposes, extortion, or harassment</li>
+                <li>Not share scan results containing vulnerabilities with malicious third parties</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>5. Prohibited Activities</h2>
+            <p>You may NOT use the Tool to:</p>
+            <ul>
+                <li>Scan systems without authorization</li>
+                <li>Conduct denial-of-service attacks</li>
+                <li>Exploit discovered vulnerabilities for personal gain</li>
+                <li>Sell or share vulnerability data with malicious actors</li>
+                <li>Circumvent security controls or rate limits</li>
+                <li>Reverse engineer, decompile, or modify the Tool</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>6. Intellectual Property</h2>
+            <p>
+                The Tool, including all software, algorithms, interfaces, and documentation, is the property of
+                Reconity Technologies. You are granted a limited, non-exclusive, non-transferable license to use
+                the Tool in accordance with this Agreement.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>7. Data Handling</h2>
+            <p>
+                Scan results and data you generate remain your property. Reconity stores this data securely and
+                does not share it with third parties except as required by law. See our Privacy Policy for details.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>8. Disclaimer of Warranties</h2>
+            <div class="warning">
+                <strong>THE TOOL IS PROVIDED "AS IS".</strong> Reconity does not warrant that:
+            </div>
+            <ul>
+                <li>Scans will detect all vulnerabilities</li>
+                <li>Results are 100% accurate (false positives may occur)</li>
+                <li>The Tool will meet all your security requirements</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>9. Limitation of Liability</h2>
+            <p>
+                Reconity shall not be liable for any damages arising from your use of the Tool, including:
+            </p>
+            <ul>
+                <li>Legal consequences from unauthorized scanning</li>
+                <li>Security incidents resulting from acting (or not acting) on scan results</li>
+                <li>Business losses or reputation damage</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>10. Indemnification</h2>
+            <p>
+                You agree to indemnify and hold Reconity harmless from any claims, damages, or expenses arising
+                from your misuse of the Tool or violation of this Agreement.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>11. Governing Law</h2>
+            <p>
+                This Agreement is governed by the laws of the Federal Democratic Republic of Nepal, including but
+                not limited to the Electronic Transaction Act 2063, Individual Privacy Act 2018, and Muluki Penal Code
+                2074.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>12. Termination</h2>
+            <p>
+                Reconity may terminate your access to the Tool at any time for violation of this Agreement or for
+                any reason with or without notice. Upon termination, you must cease all use of the Tool.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>13. Contact</h2>
+            <p>
+                <strong>Legal:</strong> legal@reconity.tech<br>
+                <strong>Support:</strong> support@reconity.tech<br>
+                <strong>Security:</strong> security@reconity.tech
+            </p>
+        </div>
+
+        <div class="footer">
+            <img src="logo.png" alt="Reconity" style="width: 48px; opacity: 0.5; margin-bottom: 1rem;">
+            <p class="footer-text">© 2026 Reconity Technologies. All Rights Reserved.</p>
+            <p class="footer-text">User Agreement v1.0 • Reconity Tool</p>
+        </div>
+    </div>
+</body>
+
+</html>

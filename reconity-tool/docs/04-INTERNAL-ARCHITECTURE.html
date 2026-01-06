@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconity - Internal Architecture Document</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            --reconity-dark: #0f172a;
+            --reconity-navy: #1e293b;
+            --reconity-blue: #3b82f6;
+            --reconity-purple: #8b5cf6;
+            --reconity-red: #ef4444;
+            --reconity-text: #e2e8f0;
+            --reconity-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--reconity-dark);
+            color: var(--reconity-text);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(239, 68, 68, 0.3);
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            width: 64px;
+            height: 64px;
+        }
+
+        .header-text h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--reconity-red);
+        }
+
+        .header-text p {
+            color: var(--reconity-muted);
+        }
+
+        .warning-banner {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .warning-banner span {
+            font-size: 1.5rem;
+        }
+
+        .warning-banner p {
+            color: #fca5a5;
+            font-weight: 500;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .diagram-container {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        .code-block {
+            background: #0d1117;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            color: #7dd3fc;
+        }
+
+        .file-tree {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 8px;
+            padding: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+        }
+
+        .file-tree .folder {
+            color: var(--reconity-blue);
+        }
+
+        .file-tree .file {
+            color: var(--reconity-muted);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        th,
+        td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        th {
+            background: rgba(59, 130, 246, 0.1);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--reconity-blue);
+        }
+
+        .env-var {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--reconity-purple);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 3rem;
+            border-top: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .footer-text {
+            color: var(--reconity-muted);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+
+<body>
+    <script>mermaid.initialize({ startOnLoad: true, theme: 'dark' });</script>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="logo.png" alt="Reconity" class="logo">
+            <div class="header-text">
+                <h1>🔒 Internal Architecture Document</h1>
+                <p>Detailed system internals • INTERNAL USE ONLY</p>
+            </div>
+        </div>
+
+        <div class="warning-banner">
+            <span>⚠️</span>
+            <p>CONFIDENTIAL - This document contains sensitive architectural details. Do not distribute externally.</p>
+        </div>
+
+        <!-- Directory Structure -->
+        <div class="section">
+            <h2 class="section-title">📁 Repository Structure</h2>
+
+            <div class="file-tree">
+                <span class="folder">reconity/</span>
+                ├── <span class="folder">reconity-web/</span> # Original marketing website (Vite/React)
+                ├── <span class="folder">reconity-tool/</span> # Reconity Security Platform (Monorepo)
+                │ ├── <span class="folder">api-gateway/</span> # Express.js Backend
+                │ ├── <span class="folder">scan-worker/</span> # Node.js Background Worker
+                │ ├── <span class="folder">web-client/</span> # React/Tailwind Platform UI
+                │ ├── <span class="folder">docs/</span> # Documentation Suite
+                │ └── <span class="file">docker-compose.yml</span> # Infrastructure
+            </div>
+        </div>
+
+        <!-- L1 DFD -->
+        <div class="section">
+            <h2 class="section-title">🔍 System Decomposition (Level 1 DFD)</h2>
+            <div class="diagram-container">
+                <div class="mermaid">
+                    flowchart TB
+                    classDef external fill:#4A90E2,stroke:#2E5C8A,stroke-width:2px,color:#fff
+                    classDef process fill:#E84393,stroke:#B8336A,stroke-width:2px,color:#fff
+                    classDef store fill:#16A085,stroke:#0E6655,stroke-width:2px,color:#fff
+                    classDef queue fill:#F39C12,stroke:#C87F0A,stroke-width:2px,color:#fff
+
+                    USER[End User]:::external
+                    CRTSH[crt.sh API]:::external
+                    TOOLS[Security Tools]:::external
+
+                    subgraph API_GATE ["API GATEWAY"]
+                    AUTH_P[1.1 Auth]:::process
+                    TARGET_P[1.2 Targets]:::process
+                    REPORT_P[1.3 Reports]:::process
+                    SCAN_ORCH[1.4 Orchestrator]:::process
+                    end
+
+                    subgraph WORKER ["SCAN WORKER"]
+                    ACTIVE_P[2.1 Active Scan]:::process
+                    end
+
+                    DB[(Database)]:::store
+                    REDIS[Redis Queue]:::queue
+
+                    USER -- "Creds/Targets" --> API_GATE
+                    API_GATE -- "Query/Save" --> DB
+                    API_GATE -- "Passive Req" --> CRTSH
+                    CRTSH -- "Subdomains" --> API_GATE
+                    API_GATE -- "Enq Job" --> REDIS
+                    REDIS -- "Deq Job" --> WORKER
+                    WORKER -- "Execute" --> TOOLS
+                    TOOLS -- "Assets" --> WORKER
+                    WORKER -- "Save Results" --> DB
+                    API_GATE -- "Reports" --> USER
+                </div>
+            </div>
+        </div>
+
+        <!-- Full DFD -->
+        <div class="section">
+            <h2 class="section-title">📊 Complete Architecture Diagram</h2>
+
+            <div class="diagram-container">
+                <div class="mermaid">
+                    flowchart TB
+                    classDef userClass fill:#4A90E2,stroke:#2E5C8A,stroke-width:3px,color:#fff
+                    classDef orgClass fill:#7B68EE,stroke:#4B3A9E,stroke-width:3px,color:#fff
+                    classDef adminClass fill:#E74C3C,stroke:#A73229,stroke-width:3px,color:#fff
+                    classDef intelClass fill:#16A085,stroke:#0E6655,stroke-width:3px,color:#fff
+                    classDef toolClass fill:#F39C12,stroke:#C87F0A,stroke-width:3px,color:#fff
+                    classDef authClass fill:#9B59B6,stroke:#6C3A82,stroke-width:3px,color:#fff
+                    classDef infraClass fill:#34495E,stroke:#1C2833,stroke-width:3px,color:#fff
+                    classDef coreClass fill:#E84393,stroke:#B8336A,stroke-width:4px,color:#fff
+                    classDef rpgClass fill:#00B894,stroke:#00846B,stroke-width:3px,color:#fff
+                    classDef moduleClass fill:#2C3E50,stroke:#1A252F,stroke-width:2px,color:#fff
+
+                    USER[End User]
+                    ORG[Organization Client]
+                    ADMIN[Platform Admin]
+                    INTEL[External Threat Intelligence]
+                    TOOLS[Security Tools Suite]
+                    AUTH_EXT[External Auth Services]
+                    INFRA[Infrastructure Layer]
+
+                    subgraph RECONITY["RECONITY PLATFORM"]
+                    direction TB
+
+                    subgraph CORE_MODULES["Core Security Platform"]
+                    direction LR
+                    AUTH[Authentication]
+                    SCAN[Scanning Engine]
+                    VULN[Vulnerability Mgmt]
+                    REPORT[Reporting]
+                    API[REST API]
+                    end
+
+                    subgraph RPG_MODULES["Cyber Odyssey RPG"]
+                    direction LR
+                    QUEST[Quest System]
+                    SKILL[Skill Tree]
+                    LAB[Interactive Labs]
+                    SOCIAL[Leaderboards]
+                    end
+
+                    subgraph DATA_LAYER["Data Layer"]
+                    direction LR
+                    DB[(Database)]
+                    CACHE[(Redis Cache)]
+                    QUEUE[Job Queue]
+                    end
+
+                    CORE_MODULES --> DATA_LAYER
+                    RPG_MODULES --> DATA_LAYER
+                    end
+
+                    USER --> AUTH
+                    USER --> SCAN
+                    USER --> QUEST
+                    ORG --> SCAN
+                    ORG --> REPORT
+                    ADMIN --> API
+                    AUTH <--> AUTH_EXT
+                        SCAN --> TOOLS
+                        INTEL --> VULN
+                        API <--> INFRA
+                            LAB <--> INFRA
+
+                                class USER userClass
+                                class ORG orgClass
+                                class ADMIN adminClass
+                                class INTEL intelClass
+                                class TOOLS toolClass
+                                class AUTH_EXT authClass
+                                class INFRA infraClass
+                                class AUTH,SCAN,VULN,REPORT,API moduleClass
+                                class QUEST,SKILL,LAB,SOCIAL rpgClass
+                </div>
+            </div>
+        </div>
+
+        <!-- Environment Variables -->
+        <div class="section">
+            <h2 class="section-title">🔐 Environment Variables</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Service</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="env-var">DATABASE_URL</td>
+                        <td>api-gateway</td>
+                        <td>Prisma database connection string</td>
+                        <td><code>file:./dev.db</code></td>
+                    </tr>
+                    <tr>
+                        <td class="env-var">JWT_SECRET</td>
+                        <td>api-gateway</td>
+                        <td>Secret key for JWT signing</td>
+                        <td><code>super-secret-key-change-me</code></td>
+                    </tr>
+                    <tr>
+                        <td class="env-var">PORT</td>
+                        <td>api-gateway</td>
+                        <td>HTTP server port</td>
+                        <td><code>3000</code></td>
+                    </tr>
+                    <tr>
+                        <td class="env-var">REDIS_HOST</td>
+                        <td>api-gateway, scan-worker</td>
+                        <td>Redis server hostname</td>
+                        <td><code>localhost</code></td>
+                    </tr>
+                    <tr>
+                        <td class="env-var">REDIS_PORT</td>
+                        <td>api-gateway, scan-worker</td>
+                        <td>Redis server port</td>
+                        <td><code>6379</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Database Schema -->
+        <div class="section">
+            <h2 class="section-title">💾 Database Schema</h2>
+
+            <div class="code-block">
+                // prisma/schema.prisma
+
+                model User {
+                id String @id @default(uuid())
+                email String @unique
+                password String
+                role String @default("ANALYST")
+                targets Target[]
+                createdAt DateTime @default(now())
+                updatedAt DateTime @updatedAt
+                }
+
+                model Target {
+                id String @id @default(uuid())
+                domain String
+                status String @default("IDLE") // IDLE | QUEUED | SCANNING | COMPLETED | FAILED
+                userId String
+                user User @relation(fields: [userId], references: [id])
+                results ScanResult[]
+                createdAt DateTime @default(now())
+                updatedAt DateTime @updatedAt
+                }
+
+                model ScanResult {
+                id String @id @default(uuid())
+                targetId String
+                target Target @relation(fields: [targetId], references: [id])
+                scanType String // "QUICK" | "FULL"
+                summary String // JSON: { count, domain }
+                details String // JSON: { subdomains: [...] }
+                vulnScore Int @default(0) // 0-100
+                createdAt DateTime @default(now())
+                }
+            </div>
+        </div>
+
+        <!-- Security Considerations -->
+        <div class="section">
+            <h2 class="section-title">🛡️ Security Considerations</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Area</th>
+                        <th>Implementation</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Password Storage</td>
+                        <td>bcrypt with cost factor 10</td>
+                        <td>✅ Active</td>
+                    </tr>
+                    <tr>
+                        <td>Authentication</td>
+                        <td>JWT with HS256, 24h expiry</td>
+                        <td>✅ Active</td>
+                    </tr>
+                    <tr>
+                        <td>HTTP Headers</td>
+                        <td>Helmet middleware (CSP, HSTS, etc.)</td>
+                        <td>✅ Active</td>
+                    </tr>
+                    <tr>
+                        <td>Input Validation</td>
+                        <td>Zod schemas on all endpoints</td>
+                        <td>✅ Active</td>
+                    </tr>
+                    <tr>
+                        <td>Rate Limiting</td>
+                        <td>express-rate-limit</td>
+                        <td>🔄 Planned</td>
+                    </tr>
+                    <tr>
+                        <td>RBAC</td>
+                        <td>Role-based access control</td>
+                        <td>🔄 Planned</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <img src="logo.png" alt="Reconity" style="width: 48px; opacity: 0.5; margin-bottom: 1rem;">
+            <p class="footer-text">© 2026 Reconity Technologies. All Rights Reserved.</p>
+            <p class="footer-text" style="color: #fca5a5;">INTERNAL USE ONLY • DO NOT DISTRIBUTE</p>
+        </div>
+    </div>
+</body>
+
+</html>

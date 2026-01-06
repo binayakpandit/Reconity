@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconity - Technical Documentation</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --reconity-dark: #0f172a;
+            --reconity-navy: #1e293b;
+            --reconity-blue: #3b82f6;
+            --reconity-purple: #8b5cf6;
+            --reconity-cyan: #06b6d4;
+            --reconity-green: #10b981;
+            --reconity-text: #e2e8f0;
+            --reconity-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--reconity-dark);
+            color: var(--reconity-text);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            width: 64px;
+            height: 64px;
+        }
+
+        .header-text h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--reconity-blue);
+        }
+
+        .header-text p {
+            color: var(--reconity-muted);
+            font-size: 0.875rem;
+        }
+
+        /* TOC */
+        .toc {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .toc h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--reconity-blue);
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .toc a {
+            color: var(--reconity-text);
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            color: var(--reconity-blue);
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 4rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-num {
+            background: var(--reconity-blue);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+
+        /* Tech Table */
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .tech-table th,
+        .tech-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .tech-table th {
+            background: rgba(59, 130, 246, 0.1);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--reconity-blue);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .badge-blue {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--reconity-blue);
+        }
+
+        .badge-purple {
+            background: rgba(139, 92, 246, 0.2);
+            color: var(--reconity-purple);
+        }
+
+        .badge-green {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--reconity-green);
+        }
+
+        .badge-cyan {
+            background: rgba(6, 182, 212, 0.2);
+            color: var(--reconity-cyan);
+        }
+
+        /* Code Block */
+        .code-block {
+            background: #0d1117;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        .code-block code {
+            color: var(--reconity-cyan);
+        }
+
+        /* AI Section */
+        .ai-card {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .ai-card h3 {
+            color: var(--reconity-purple);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem;
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+            margin-top: 3rem;
+        }
+
+        .footer-text {
+            color: var(--reconity-muted);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="logo.png" alt="Reconity" class="logo">
+            <div class="header-text">
+                <h1>Technical Documentation</h1>
+                <p>Complete technology stack, tools, and integration guide</p>
+            </div>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h2>📋 Table of Contents</h2>
+            <ul>
+                <li><a href="#frontend">1. Frontend Stack</a></li>
+                <li><a href="#backend">2. Backend Architecture</a></li>
+                <li><a href="#database">3. Database & ORM</a></li>
+                <li><a href="#queue">4. Job Queue & Workers</a></li>
+                <li><a href="#security-tools">5. Security Tools Suite</a></li>
+                <li><a href="#ai">6. AI & Automation</a></li>
+                <li><a href="#infrastructure">7. Infrastructure</a></li>
+                <li><a href="#api">8. API Reference</a></li>
+            </ul>
+        </div>
+
+        <!-- Section 1: Frontend -->
+        <div class="section" id="frontend">
+            <div class="section-header">
+                <span class="section-num">1</span>
+                <h2 class="section-title">Frontend Stack</h2>
+            </div>
+
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>Technology</th>
+                        <th>Version</th>
+                        <th>Purpose</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>React</strong></td>
+                        <td>19.x</td>
+                        <td>Component-based UI framework</td>
+                        <td><span class="badge badge-green">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>TypeScript</strong></td>
+                        <td>5.9.x</td>
+                        <td>Type-safe JavaScript superset</td>
+                        <td><span class="badge badge-green">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vite</strong></td>
+                        <td>7.x</td>
+                        <td>Lightning-fast build tool</td>
+                        <td><span class="badge badge-green">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tailwind CSS</strong></td>
+                        <td>3.4.x</td>
+                        <td>Utility-first CSS framework</td>
+                        <td><span class="badge badge-green">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>React Router</strong></td>
+                        <td>7.x</td>
+                        <td>Client-side routing</td>
+                        <td><span class="badge badge-green">Active</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 2: Backend -->
+        <div class="section" id="backend">
+            <div class="section-header">
+                <span class="section-num">2</span>
+                <h2 class="section-title">Backend Architecture</h2>
+            </div>
+
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>Technology</th>
+                        <th>Version</th>
+                        <th>Purpose</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Node.js</strong></td>
+                        <td>20.x LTS</td>
+                        <td>JavaScript runtime environment</td>
+                        <td><span class="badge badge-green">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Express.js</strong></td>
+                        <td>4.x</td>
+                        <td>HTTP server framework</td>
+                        <td><span class="badge badge-green">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Helmet</strong></td>
+                        <td>Latest</td>
+                        <td>Security headers middleware</td>
+                        <td><span class="badge badge-green">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>CORS</strong></td>
+                        <td>Latest</td>
+                        <td>Cross-origin resource sharing</td>
+                        <td><span class="badge badge-green">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Zod</strong></td>
+                        <td>Latest</td>
+                        <td>Request validation library</td>
+                        <td><span class="badge badge-green">Active</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 3: Database -->
+        <div class="section" id="database">
+            <div class="section-header">
+                <span class="section-num">3</span>
+                <h2 class="section-title">Database & ORM</h2>
+            </div>
+
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>Technology</th>
+                        <th>Version</th>
+                        <th>Purpose</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Prisma</strong></td>
+                        <td>5.10.x</td>
+                        <td>Type-safe ORM with migrations</td>
+                        <td><span class="badge badge-green">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>SQLite</strong></td>
+                        <td>Latest</td>
+                        <td>Development database</td>
+                        <td><span class="badge badge-blue">Dev</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>PostgreSQL</strong></td>
+                        <td>16.x</td>
+                        <td>Production database</td>
+                        <td><span class="badge badge-purple">Planned</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="code-block">
+                <code>// Schema Models<br>
+model User { id, email, password, role, createdAt, updatedAt }<br>
+model Target { id, domain, status, userId, createdAt, updatedAt }<br>
+model ScanResult { id, targetId, scanType, summary, details, vulnScore, createdAt }</code>
+            </div>
+        </div>
+
+        <!-- Section 4: Queue -->
+        <div class="section" id="queue">
+            <div class="section-header">
+                <span class="section-num">4</span>
+                <h2 class="section-title">Job Queue & Workers</h2>
+            </div>
+
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>Technology</th>
+                        <th>Version</th>
+                        <th>Purpose</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Redis</strong></td>
+                        <td>7.x</td>
+                        <td>In-memory data store for queues</td>
+                        <td><span class="badge badge-green">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>BullMQ</strong></td>
+                        <td>Latest</td>
+                        <td>Job queue library</td>
+                        <td><span class="badge badge-green">Active</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 5: Security Tools -->
+        <div class="section" id="security-tools">
+            <div class="section-header">
+                <span class="section-num">5</span>
+                <h2 class="section-title">Security Tools Suite</h2>
+            </div>
+
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>Tool</th>
+                        <th>Language</th>
+                        <th>Purpose</th>
+                        <th>Integration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Subfinder</strong></td>
+                        <td>Go</td>
+                        <td>Passive subdomain enumeration</td>
+                        <td><span class="badge badge-green">Integrated</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>crt.sh API</strong></td>
+                        <td>HTTP</td>
+                        <td>Certificate Transparency logs</td>
+                        <td><span class="badge badge-green">Integrated</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>HTTPX</strong></td>
+                        <td>Go</td>
+                        <td>Live host probing</td>
+                        <td><span class="badge badge-purple">Planned</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nuclei</strong></td>
+                        <td>Go</td>
+                        <td>Vulnerability scanner</td>
+                        <td><span class="badge badge-purple">Planned</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nmap</strong></td>
+                        <td>C</td>
+                        <td>Port scanning</td>
+                        <td><span class="badge badge-purple">Planned</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 6: AI -->
+        <div class="section" id="ai">
+            <div class="section-header">
+                <span class="section-num">6</span>
+                <h2 class="section-title">AI & Automation</h2>
+            </div>
+
+            <div class="ai-card">
+                <h3>🤖 Antigravity AI Assistant</h3>
+                <p style="color: var(--reconity-text); margin-bottom: 1rem;">
+                    The Reconity platform was co-developed with <strong>Antigravity</strong>, an advanced agentic AI
+                    coding assistant
+                    developed by Google DeepMind's Advanced Agentic Coding team. Antigravity provides:
+                </p>
+                <ul style="color: var(--reconity-muted); padding-left: 1.5rem;">
+                    <li>Automated code generation and review</li>
+                    <li>Real-time debugging and error resolution</li>
+                    <li>Documentation generation</li>
+                    <li>Browser-based UI verification</li>
+                    <li>Multi-file refactoring</li>
+                </ul>
+            </div>
+
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>AI Tool</th>
+                        <th>Provider</th>
+                        <th>Purpose</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Antigravity</strong></td>
+                        <td>Google DeepMind</td>
+                        <td>Development assistant & documentation</td>
+                        <td><span class="badge badge-green">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>LLM Report Generation</strong></td>
+                        <td>TBD</td>
+                        <td>AI-driven vulnerability summaries</td>
+                        <td><span class="badge badge-purple">Planned</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 7: Infrastructure -->
+        <div class="section" id="infrastructure">
+            <div class="section-header">
+                <span class="section-num">7</span>
+                <h2 class="section-title">Infrastructure</h2>
+            </div>
+
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Provider</th>
+                        <th>Purpose</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Docker</strong></td>
+                        <td>Docker Inc.</td>
+                        <td>Containerization</td>
+                        <td><span class="badge badge-green">Ready</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Docker Compose</strong></td>
+                        <td>Docker Inc.</td>
+                        <td>Multi-container orchestration</td>
+                        <td><span class="badge badge-green">Ready</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>GitHub</strong></td>
+                        <td>Microsoft</td>
+                        <td>Source control & CI/CD</td>
+                        <td><span class="badge badge-green">Active</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 8: API -->
+        <div class="section" id="api">
+            <div class="section-header">
+                <span class="section-num">8</span>
+                <h2 class="section-title">API Reference</h2>
+            </div>
+
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>Endpoint</th>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Auth</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/api/auth/register</code></td>
+                        <td><span class="badge badge-green">POST</span></td>
+                        <td>User registration</td>
+                        <td>Public</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/auth/login</code></td>
+                        <td><span class="badge badge-green">POST</span></td>
+                        <td>User authentication</td>
+                        <td>Public</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/targets</code></td>
+                        <td><span class="badge badge-blue">GET</span></td>
+                        <td>List user targets</td>
+                        <td>JWT</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/targets</code></td>
+                        <td><span class="badge badge-green">POST</span></td>
+                        <td>Add new target</td>
+                        <td>JWT</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/targets/:id/quick-scan</code></td>
+                        <td><span class="badge badge-green">POST</span></td>
+                        <td>Run crt.sh scan</td>
+                        <td>JWT</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/targets/:id/full-scan</code></td>
+                        <td><span class="badge badge-green">POST</span></td>
+                        <td>Queue Subfinder scan</td>
+                        <td>JWT</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/reports/target/:id</code></td>
+                        <td><span class="badge badge-blue">GET</span></td>
+                        <td>List reports for target</td>
+                        <td>JWT</td>
+                    </tr>
+                    <tr>
+                        <td><code>/api/reports/:id</code></td>
+                        <td><span class="badge badge-blue">GET</span></td>
+                        <td>Get report details</td>
+                        <td>JWT</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <img src="logo.png" alt="Reconity" style="width: 48px; opacity: 0.5; margin-bottom: 1rem;">
+            <p class="footer-text">© 2026 Reconity Technologies. All Rights Reserved.</p>
+            <p class="footer-text">Technical Documentation v1.0 • Last Updated: January 2026</p>
+        </div>
+    </div>
+</body>
+
+</html>

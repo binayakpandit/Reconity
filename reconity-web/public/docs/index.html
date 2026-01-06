@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconity - Documentation Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --reconity-dark: #0f172a;
+            --reconity-navy: #1e293b;
+            --reconity-blue: #3b82f6;
+            --reconity-purple: #8b5cf6;
+            --reconity-text: #e2e8f0;
+            --reconity-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--reconity-dark) 0%, #1a1a2e 100%);
+            color: var(--reconity-text);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .header {
+            text-align: center;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.4));
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--reconity-blue), var(--reconity-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: var(--reconity-muted);
+            font-size: 1.125rem;
+        }
+
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .doc-card {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .doc-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--reconity-blue);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+        }
+
+        .doc-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .doc-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .doc-desc {
+            color: var(--reconity-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .doc-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .badge-public {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .badge-internal {
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+        }
+
+        .badge-legal {
+            background: rgba(245, 158, 11, 0.2);
+            color: #fbbf24;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .footer-text {
+            color: var(--reconity-muted);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="logo.png" alt="Reconity" class="logo">
+            <h1>Documentation Hub</h1>
+            <p>Comprehensive enterprise documentation for the Reconity Platform</p>
+        </div>
+
+        <div class="docs-grid">
+            <a href="01-INVESTOR-DOCUMENT.html" class="doc-card">
+                <div class="doc-icon">💼</div>
+                <h3 class="doc-title">Investor Document</h3>
+                <p class="doc-desc">Executive summary, budget allocation, services overview, and product roadmap for
+                    investors.</p>
+                <span class="doc-badge badge-internal">Confidential</span>
+            </a>
+
+            <a href="02-TECHNICAL-DOCUMENTATION.html" class="doc-card">
+                <div class="doc-icon">⚙️</div>
+                <h3 class="doc-title">Technical Documentation</h3>
+                <p class="doc-desc">Complete tech stack, tools, API reference, and AI integration details.</p>
+                <span class="doc-badge badge-public">Public</span>
+            </a>
+
+            <a href="03-ARCHITECTURE-DOCUMENT.html" class="doc-card">
+                <div class="doc-icon">🏗️</div>
+                <h3 class="doc-title">Architecture Document</h3>
+                <p class="doc-desc">System overview, context diagram (Level 0 DFD), and data flow architecture.</p>
+                <span class="doc-badge badge-public">Public</span>
+            </a>
+
+            <a href="04-INTERNAL-ARCHITECTURE.html" class="doc-card">
+                <div class="doc-icon">🔒</div>
+                <h3 class="doc-title">Internal Architecture</h3>
+                <p class="doc-desc">Detailed system internals, directory structure, database schema, environment
+                    variables.</p>
+                <span class="doc-badge badge-internal">Internal Only</span>
+            </a>
+
+            <a href="13-PRIVACY-POLICY-WEB.html" class="doc-card">
+                <div class="doc-icon">🔐</div>
+                <h3 class="doc-title">Privacy Policy (Web)</h3>
+                <p class="doc-desc">Data collection and usage practices for the Reconity marketing website.</p>
+                <span class="doc-badge badge-legal">Legal</span>
+            </a>
+
+            <a href="14-PRIVACY-POLICY-TOOL.html" class="doc-card">
+                <div class="doc-icon">🛡️</div>
+                <h3 class="doc-title">Privacy Policy (Tool)</h3>
+                <p class="doc-desc">Sensitive data handling, scan results, and security controls for the platform.</p>
+                <span class="doc-badge badge-legal">Legal</span>
+            </a>
+
+            <a href="06-DATA-PROTECTION-POLICY.html" class="doc-card">
+                <div class="doc-icon">🛡️</div>
+                <h3 class="doc-title">Data Protection & Retention</h3>
+                <p class="doc-desc">GDPR compliance, data classification, retention schedules, and security measures.
+                </p>
+                <span class="doc-badge badge-legal">Legal</span>
+            </a>
+
+            <a href="07-AI-GUIDELINES.html" class="doc-card">
+                <div class="doc-icon">🤖</div>
+                <h3 class="doc-title">AI Guidelines</h3>
+                <p class="doc-desc">Responsible AI principles, transparency, human oversight, and limitations.</p>
+                <span class="doc-badge badge-public">Public</span>
+            </a>
+
+            <a href="08-LAW-AND-POLICIES.html" class="doc-card">
+                <div class="doc-icon">⚖️</div>
+                <h3 class="doc-title">Law & Policies</h3>
+                <p class="doc-desc">Regulatory compliance, legal use guidelines, export controls, and dispute
+                    resolution.</p>
+                <span class="doc-badge badge-legal">Legal</span>
+            </a>
+
+            <a href="09-USER-MANUAL.html" class="doc-card">
+                <div class="doc-icon">📖</div>
+                <h3 class="doc-title">User Manual</h3>
+                <p class="doc-desc">Complete guide to using the platform: targets, scanning, reports, and account
+                    management.</p>
+                <span class="doc-badge badge-public">Public</span>
+            </a>
+
+            <a href="10-SUPPORT-GUIDE.html" class="doc-card">
+                <div class="doc-icon">🆘</div>
+                <h3 class="doc-title">Support Guide</h3>
+                <p class="doc-desc">How to get help, contact channels, priority levels, and FAQs.</p>
+                <span class="doc-badge badge-public">Public</span>
+            </a>
+
+            <a href="11-USER-AGREEMENT-WEB.html" class="doc-card">
+                <div class="doc-icon">📜</div>
+                <h3 class="doc-title">User Agreement (Web)</h3>
+                <p class="doc-desc">Terms of service for the Reconity marketing website.</p>
+                <span class="doc-badge badge-legal">Legal</span>
+            </a>
+
+            <a href="12-USER-AGREEMENT-TOOL.html" class="doc-card">
+                <div class="doc-icon">🛠️</div>
+                <h3 class="doc-title">User Agreement (Tool)</h3>
+                <p class="doc-desc">Legal usage terms, scan authorizations, and responsibilities for the platform.</p>
+                <span class="doc-badge badge-legal">Legal</span>
+            </a>
+        </div>
+
+        <div class="footer">
+            <img src="logo.png" alt="Reconity" style="width: 48px; opacity: 0.5; margin-bottom: 1rem;">
+            <p class="footer-text">© 2026 Reconity Technologies. All Rights Reserved.</p>
+            <p class="footer-text">Documentation Version 1.0 • January 2026</p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconity Platform - Enterprise Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --reconity-dark: #0f172a;
+            --reconity-navy: #1e293b;
+            --reconity-blue: #3b82f6;
+            --reconity-purple: #8b5cf6;
+            --reconity-cyan: #06b6d4;
+            --reconity-text: #e2e8f0;
+            --reconity-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--reconity-dark) 0%, #1a1a2e 100%);
+            color: var(--reconity-text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 4rem 0;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            margin-bottom: 4rem;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.4));
+        }
+
+        .brand-name {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--reconity-blue), var(--reconity-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--reconity-muted);
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .doc-type {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.75rem 2rem;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--reconity-blue);
+            letter-spacing: 2px;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--reconity-blue);
+        }
+
+        .section-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--reconity-blue);
+            opacity: 0.5;
+            line-height: 1;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .section-content {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        /* Feature Cards */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.8));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--reconity-blue);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .feature-desc {
+            font-size: 0.875rem;
+            color: var(--reconity-muted);
+        }
+
+        /* Screenshot */
+        .screenshot-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .screenshot {
+            max-width: 100%;
+            border-radius: 16px;
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .screenshot-caption {
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: var(--reconity-muted);
+            font-style: italic;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--reconity-blue);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--reconity-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+
+        /* Tech Stack */
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .tech-table th,
+        .tech-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .tech-table th {
+            color: var(--reconity-blue);
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tech-table td {
+            color: var(--reconity-text);
+        }
+
+        .tech-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(139, 92, 246, 0.2);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: var(--reconity-purple);
+        }
+
+        /* Architecture Diagram */
+        .architecture {
+            background: var(--reconity-dark);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.875rem;
+            color: var(--reconity-cyan);
+            overflow-x: auto;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .footer-logo {
+            width: 48px;
+            height: 48px;
+            opacity: 0.5;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            color: var(--reconity-muted);
+            font-size: 0.875rem;
+        }
+
+        .confidential {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: #fca5a5;
+            letter-spacing: 2px;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: #1a1a1a;
+            }
+
+            .section-content {
+                background: #f8fafc;
+                border: 1px solid #e2e8f0;
+            }
+
+            .brand-name {
+                color: #3b82f6;
+                -webkit-text-fill-color: #3b82f6;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="logo.png" alt="Reconity Logo" class="logo">
+            <h1 class="brand-name">RECONITY</h1>
+            <p class="tagline">Your Trusted Companion in This Digital World</p>
+            <span class="doc-type">INVESTOR DOCUMENTATION • V1.0 • CONFIDENTIAL</span>
+        </div>
+
+        <!-- Executive Summary -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">Executive Summary</h2>
+            </div>
+            <div class="section-content">
+                <p style="font-size: 1.125rem; margin-bottom: 1.5rem;">
+                    <strong>Reconity</strong> is a next-generation cybersecurity platform that unifies vulnerability
+                    assessment,
+                    reconnaissance, and security reporting into a single, elegant dashboard. We eliminate the complexity
+                    of fragmented security tools, providing enterprises with a "One Dashboard, One Scan, One Report"
+                    solution.
+                </p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">100%</div>
+                        <div class="stat-label">Automated</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">Zero</div>
+                        <div class="stat-label">CLI Required</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">Real-Time</div>
+                        <div class="stat-label">Processing</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">Enterprise</div>
+                        <div class="stat-label">Grade Security</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Screenshot -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">Product Interface</h2>
+            </div>
+            <div class="section-content">
+                <div class="screenshot-container">
+                    <img src="screenshots/login.png" alt="Reconity Login Interface" class="screenshot">
+                    <p class="screenshot-caption">Fig 1: Secure Access Terminal - Premium glassmorphism design with
+                        enterprise-grade authentication</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Core Features -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Core Capabilities</h2>
+            </div>
+            <div class="section-content">
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔐</div>
+                        <h3 class="feature-title">Zero-Trust Authentication</h3>
+                        <p class="feature-desc">JWT-based stateless authentication with bcrypt password hashing.
+                            Enterprise-grade security out of the box.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3 class="feature-title">Intelligent Target Management</h3>
+                        <p class="feature-desc">Add domains with a single click. Automatic validation and historical
+                            tracking of all assets.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3 class="feature-title">Quick Scan (OSINT)</h3>
+                        <p class="feature-desc">Passive reconnaissance using Certificate Transparency logs. Zero
+                            footprint, instant results.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <h3 class="feature-title">Full Scan (Active)</h3>
+                        <p class="feature-desc">Deep DNS enumeration using industry-leading tools. Comprehensive
+                            subdomain discovery.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3 class="feature-title">Executive Reporting</h3>
+                        <p class="feature-desc">Tenable-grade reports with risk scoring, executive summaries, and
+                            technical details.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🖨️</div>
+                        <h3 class="feature-title">PDF Export</h3>
+                        <p class="feature-desc">One-click professional reports. Print-optimized CSS for client
+                            deliverables.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Architecture -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">System Architecture</h2>
+            </div>
+            <div class="section-content">
+                <pre class="architecture">
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           RECONITY PLATFORM                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   ┌──────────────┐        ┌──────────────┐        ┌──────────────┐          │
+│   │  Web Client  │──────▶│  API Gateway │───────▶│   Database  │          │
+│   │   (React)    │  HTTPS │  (Node.js)   │  SQL   │  (SQLite/PG) │          │
+│   └──────────────┘        └──────────────┘        └──────────────┘          │
+│                                   │                                         │
+│                                   │ Jobs                                    │
+│                                   ▼                                         │
+│                           ┌──────────────┐                                  │
+│                           │    Redis     │                                  │
+│                           │   (Queue)    │                                  │
+│                           └──────────────┘                                  │
+│                                   │                                         │
+│                                   │ Pull                                    │
+│                                   ▼                                         │
+│                           ┌──────────────┐        ┌──────────────┐          │
+│                           │ Scan Worker  │───────▶│ Security    │          │
+│                           │  (BullMQ)    │  Exec  │ Tools        │          │
+│                           └──────────────┘        └──────────────┘          │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+                </pre>
+            </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title">Technology Stack</h2>
+            </div>
+            <div class="section-content">
+                <table class="tech-table">
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Technology</th>
+                            <th>Version</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Frontend</td>
+                            <td>React + TypeScript</td>
+                            <td><span class="tech-badge">v19.x</span></td>
+                            <td>Premium dashboard UI</td>
+                        </tr>
+                        <tr>
+                            <td>Styling</td>
+                            <td>Tailwind CSS</td>
+                            <td><span class="tech-badge">v3.4</span></td>
+                            <td>Glassmorphism & animations</td>
+                        </tr>
+                        <tr>
+                            <td>Backend</td>
+                            <td>Node.js + Express</td>
+                            <td><span class="tech-badge">v20.x</span></td>
+                            <td>RESTful API gateway</td>
+                        </tr>
+                        <tr>
+                            <td>ORM</td>
+                            <td>Prisma</td>
+                            <td><span class="tech-badge">v5.x</span></td>
+                            <td>Type-safe database access</td>
+                        </tr>
+                        <tr>
+                            <td>Queue</td>
+                            <td>Redis + BullMQ</td>
+                            <td><span class="tech-badge">Latest</span></td>
+                            <td>Async job processing</td>
+                        </tr>
+                        <tr>
+                            <td>Tools</td>
+                            <td>Subfinder (Go)</td>
+                            <td><span class="tech-badge">v2.6</span></td>
+                            <td>DNS enumeration engine</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Roadmap -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2 class="section-title">Product Roadmap</h2>
+            </div>
+            <div class="section-content">
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🟢</div>
+                        <h3 class="feature-title">Q1 2026 (Current)</h3>
+                        <p class="feature-desc">Core platform, Auth, Target Management, Quick & Full Scans, Executive
+                            Reports</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🟡</div>
+                        <h3 class="feature-title">Q2 2026</h3>
+                        <p class="feature-desc">HTTPX integration, Live probing, Screenshot capture, Port scanning</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔵</div>
+                        <h3 class="feature-title">Q3 2026</h3>
+                        <p class="feature-desc">AI-driven vulnerability correlation, LLM report generation, Risk
+                            prioritization</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🟣</div>
+                        <h3 class="feature-title">Q4 2026</h3>
+                        <p class="feature-desc">Enterprise SSO, Team collaboration, Compliance reporting (SOC2,
+                            ISO27001)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <img src="logo.png" alt="Reconity" class="footer-logo">
+            <p class="footer-text">© 2026 Reconity Technologies. All Rights Reserved.</p>
+            <p class="footer-text">Generated: January 7, 2026</p>
+            <span class="confidential">CONFIDENTIAL - FOR INVESTOR USE ONLY</span>
+        </div>
+    </div>
+</body>
+
+</html>

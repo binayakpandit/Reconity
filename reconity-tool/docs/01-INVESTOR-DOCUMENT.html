@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconity - Investor Pitch Deck</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --reconity-dark: #0f172a;
+            --reconity-navy: #1e293b;
+            --reconity-blue: #3b82f6;
+            --reconity-purple: #8b5cf6;
+            --reconity-cyan: #06b6d4;
+            --reconity-green: #10b981;
+            --reconity-orange: #f59e0b;
+            --reconity-red: #ef4444;
+            --reconity-text: #e2e8f0;
+            --reconity-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--reconity-dark) 0%, #1a1a2e 100%);
+            color: var(--reconity-text);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Cover Page */
+        .cover {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 4rem 2rem;
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 3rem;
+            filter: drop-shadow(0 0 40px rgba(59, 130, 246, 0.4));
+        }
+
+        .brand-name {
+            font-size: 5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--reconity-blue), var(--reconity-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -3px;
+            margin-bottom: 1rem;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--reconity-muted);
+            font-weight: 300;
+            margin-bottom: 3rem;
+        }
+
+        .doc-badge {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #fca5a5;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .cover-meta {
+            margin-top: 4rem;
+            color: var(--reconity-muted);
+            font-size: 0.875rem;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 5rem 0;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--reconity-blue);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--reconity-muted);
+            max-width: 800px;
+        }
+
+        /* Stats Grid */
+        .stats-hero {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2.5rem;
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 16px;
+        }
+
+        .stat-value {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--reconity-blue), var(--reconity-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--reconity-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+
+        /* Service Cards */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .service-card {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.8));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--reconity-blue);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-desc {
+            color: var(--reconity-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Budget Table */
+        .budget-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .budget-table th,
+        .budget-table td {
+            padding: 1.25rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .budget-table th {
+            background: rgba(59, 130, 246, 0.1);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--reconity-blue);
+        }
+
+        .budget-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .budget-table .total-row {
+            background: rgba(16, 185, 129, 0.1);
+            font-weight: 700;
+        }
+
+        .amount {
+            font-family: 'SF Mono', monospace;
+            color: var(--reconity-green);
+            font-weight: 600;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--reconity-blue), var(--reconity-purple));
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            padding: 2rem;
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+        }
+
+        .timeline-date {
+            font-size: 0.75rem;
+            color: var(--reconity-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.25rem 3rem;
+            background: linear-gradient(135deg, var(--reconity-blue), var(--reconity-purple));
+            color: white;
+            font-weight: 700;
+            font-size: 1.125rem;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem;
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .footer-logo {
+            width: 48px;
+            opacity: 0.5;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            color: var(--reconity-muted);
+            font-size: 0.875rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: #1a1a1a;
+            }
+
+            .brand-name {
+                color: #3b82f6;
+                -webkit-text-fill-color: #3b82f6;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Cover Page -->
+    <div class="cover">
+        <img src="logo.png" alt="Reconity Logo" class="logo">
+        <h1 class="brand-name">RECONITY</h1>
+        <p class="tagline">The Future of Integrated Cybersecurity & Learning</p>
+        <span class="doc-badge">Investor Document • Confidential</span>
+        <div class="cover-meta">
+            <p>Version 1.0 • January 2026</p>
+            <p>Prepared for: Strategic Investment Partners</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Executive Summary -->
+        <div class="section">
+            <span class="section-tag">Executive Summary</span>
+            <h2 class="section-title">One Platform. Infinite Security.</h2>
+            <p class="section-subtitle">
+                Reconity is a next-generation cybersecurity platform that combines enterprise-grade vulnerability
+                assessment with gamified learning through our proprietary <strong>Cyber Odyssey RPG</strong> system.
+            </p>
+
+            <div class="stats-hero">
+                <div class="stat-card">
+                    <div class="stat-value">$50B+</div>
+                    <div class="stat-label">Global Market Size</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">3.5M</div>
+                    <div class="stat-label">Unfilled Cyber Jobs</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">15%</div>
+                    <div class="stat-label">Annual Growth Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">Zero</div>
+                    <div class="stat-label">CLI Required</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services -->
+        <div class="section">
+            <span class="section-tag">Our Services</span>
+            <h2 class="section-title">What We Offer</h2>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3 class="service-title">Automated Reconnaissance</h3>
+                    <p class="service-desc">One-click subdomain discovery, port scanning, and asset enumeration using
+                        industry-leading tools.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3 class="service-title">Vulnerability Management</h3>
+                    <p class="service-desc">Continuous scanning with CVE correlation, risk scoring, and prioritized
+                        remediation guidance.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3 class="service-title">Executive Reporting</h3>
+                    <p class="service-desc">Tenable-grade reports for boards and compliance teams. One-click PDF export.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎮</div>
+                    <h3 class="service-title">Cyber Odyssey RPG</h3>
+                    <p class="service-desc">Gamified learning with quests, skill trees, XP progression, and real lab
+                        environments.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏆</div>
+                    <h3 class="service-title">CTF & Challenges</h3>
+                    <p class="service-desc">Built-in Capture The Flag competitions with leaderboards and community
+                        features.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔐</div>
+                    <h3 class="service-title">Enterprise SSO</h3>
+                    <p class="service-desc">SAML, OAuth, MFA integration for seamless enterprise onboarding.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Budget Allocation -->
+        <div class="section">
+            <span class="section-tag">Financial Overview</span>
+            <h2 class="section-title">Investment Allocation</h2>
+            <p class="section-subtitle">Strategic deployment of funds across core development areas.</p>
+
+            <table class="budget-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Allocation</th>
+                        <th>Amount (USD)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🛠️ Engineering</td>
+                        <td>Core platform development, scanning engine, API</td>
+                        <td>40%</td>
+                        <td class="amount">$400,000</td>
+                    </tr>
+                    <tr>
+                        <td>🎮 RPG Development</td>
+                        <td>Cyber Odyssey gamification, labs, challenges</td>
+                        <td>20%</td>
+                        <td class="amount">$200,000</td>
+                    </tr>
+                    <tr>
+                        <td>☁️ Infrastructure</td>
+                        <td>Cloud services, CDN, container orchestration</td>
+                        <td>15%</td>
+                        <td class="amount">$150,000</td>
+                    </tr>
+                    <tr>
+                        <td>📈 Marketing</td>
+                        <td>Brand awareness, community building, events</td>
+                        <td>15%</td>
+                        <td class="amount">$150,000</td>
+                    </tr>
+                    <tr>
+                        <td>⚖️ Legal & Compliance</td>
+                        <td>SOC2 certification, GDPR, legal structure</td>
+                        <td>5%</td>
+                        <td class="amount">$50,000</td>
+                    </tr>
+                    <tr>
+                        <td>🔄 Operations</td>
+                        <td>Hiring, office, administrative</td>
+                        <td>5%</td>
+                        <td class="amount">$50,000</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td><strong>TOTAL</strong></td>
+                        <td>Seed Round Target</td>
+                        <td>100%</td>
+                        <td class="amount" style="font-size: 1.25rem;">$1,000,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Roadmap -->
+        <div class="section">
+            <span class="section-tag">Product Roadmap</span>
+            <h2 class="section-title" style="text-align: center;">Journey to Market Leadership</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Q1 2026 - Now</div>
+                        <h4 class="timeline-title">MVP Launch</h4>
+                        <p style="color: var(--reconity-muted); font-size: 0.9rem;">
+                            Core scanning engine, authentication, target management, executive reporting.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Q2 2026</div>
+                        <h4 class="timeline-title">Advanced Scanning</h4>
+                        <p style="color: var(--reconity-muted); font-size: 0.9rem;">
+                            HTTPX integration, live probing, screenshot capture, nuclei templates.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Q3 2026</div>
+                        <h4 class="timeline-title">Cyber Odyssey RPG</h4>
+                        <p style="color: var(--reconity-muted); font-size: 0.9rem;">
+                            Quest system, skill trees, interactive labs, community leaderboards.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Q4 2026</div>
+                        <h4 class="timeline-title">Enterprise Release</h4>
+                        <p style="color: var(--reconity-muted); font-size: 0.9rem;">
+                            SSO, team collaboration, compliance reporting, AI-driven insights.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <h2 class="section-title">Join the Cybersecurity Revolution</h2>
+            <p class="section-subtitle" style="margin: 2rem auto;">
+                Partner with Reconity to democratize security and train the next generation of defenders.
+            </p>
+            <a href="mailto:invest@reconity.tech" class="cta-button">Schedule a Meeting →</a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <img src="logo.png" alt="Reconity" class="footer-logo">
+            <p class="footer-text">© 2026 Reconity Technologies. All Rights Reserved.</p>
+            <p class="footer-text" style="margin-top: 0.5rem;">This document is confidential and intended for authorized
+                investors only.</p>
+        </div>
+    </div>
+</body>
+
+</html>

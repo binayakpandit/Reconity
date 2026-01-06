@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconity - AI Guidelines</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --reconity-dark: #0f172a;
+            --reconity-blue: #3b82f6;
+            --reconity-purple: #8b5cf6;
+            --reconity-text: #e2e8f0;
+            --reconity-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--reconity-dark);
+            color: var(--reconity-text);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .header {
+            text-align: center;
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--reconity-purple);
+        }
+
+        .header p {
+            color: var(--reconity-muted);
+            margin-top: 0.5rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .section p,
+        .section li {
+            color: var(--reconity-muted);
+            margin-bottom: 1rem;
+        }
+
+        .section ul {
+            padding-left: 1.5rem;
+        }
+
+        .principle-card {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .principle-card h3 {
+            color: var(--reconity-purple);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 3rem;
+            border-top: 1px solid rgba(139, 92, 246, 0.2);
+            margin-top: 3rem;
+        }
+
+        .footer-text {
+            color: var(--reconity-muted);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="logo.png" alt="Reconity" class="logo">
+            <h1>🤖 AI Guidelines</h1>
+            <p>Principles for Responsible AI Use in Cybersecurity</p>
+        </div>
+
+        <div class="section">
+            <h2>1. Introduction</h2>
+            <p>
+                Reconity leverages artificial intelligence to enhance cybersecurity operations, from automated
+                vulnerability
+                detection to intelligent report generation. This document outlines our commitment to responsible,
+                ethical,
+                and transparent AI use.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>2. Core Principles</h2>
+
+            <div class="principle-card">
+                <h3>🎯 Accuracy & Reliability</h3>
+                <p>All AI-generated findings are validated against known databases and cross-referenced with multiple
+                    sources. We clearly distinguish between AI-assisted insights and verified facts.</p>
+            </div>
+
+            <div class="principle-card">
+                <h3>🔍 Transparency</h3>
+                <p>Users are informed when AI is involved in generating content, recommendations, or analysis.
+                    AI-generated reports are clearly labeled.</p>
+            </div>
+
+            <div class="principle-card">
+                <h3>👤 Human Oversight</h3>
+                <p>AI assists human operators but does not make autonomous decisions with significant impact. Critical
+                    security decisions require human approval.</p>
+            </div>
+
+            <div class="principle-card">
+                <h3>🔐 Privacy Preservation</h3>
+                <p>AI models are trained on anonymized data. User-specific data is never used to train shared models
+                    without explicit consent.</p>
+            </div>
+
+            <div class="principle-card">
+                <h3>⚖️ Fairness & Non-Discrimination</h3>
+                <p>AI systems are designed to avoid bias. We regularly audit for discriminatory patterns in automated
+                    decisions.</p>
+            </div>
+
+            <div class="principle-card">
+                <h3>🛡️ Security</h3>
+                <p>AI systems are protected against adversarial attacks, prompt injection, and model manipulation.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>3. AI Applications in Reconity</h2>
+            <ul>
+                <li><strong>Vulnerability Correlation:</strong> AI matches discovered assets against CVE databases and
+                    prioritizes by exploitability</li>
+                <li><strong>Report Generation:</strong> Natural language summaries of technical findings for executive
+                    audiences</li>
+                <li><strong>Threat Intelligence:</strong> Pattern recognition across threat feeds to identify emerging
+                    attack vectors</li>
+                <li><strong>Learning Assistance:</strong> Personalized learning paths in Cyber Odyssey RPG based on
+                    skill progression</li>
+                <li><strong>Code Development:</strong> Antigravity AI assistant for platform development (clearly
+                    documented)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>4. AI Development Partners</h2>
+            <p>Reconity was developed with assistance from:</p>
+            <ul>
+                <li><strong>Antigravity</strong> (Google DeepMind) - Agentic AI coding assistant for development,
+                    debugging, and documentation</li>
+            </ul>
+            <p>All AI-generated code is reviewed by human developers before deployment.</p>
+        </div>
+
+        <div class="section">
+            <h2>5. Data Handling for AI</h2>
+            <ul>
+                <li>User data is never shared with third-party AI providers without encryption and anonymization</li>
+                <li>AI models used for scanning do not retain user-specific information after processing</li>
+                <li>Training data sources are documented and auditable</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>6. Limitations & Disclaimers</h2>
+            <p>Users should be aware that:</p>
+            <ul>
+                <li>AI-generated vulnerability assessments may contain false positives or miss unknown vulnerabilities
+                </li>
+                <li>AI risk scores are indicators, not guarantees of exploitability</li>
+                <li>AI cannot replace professional security assessment for high-stakes environments</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>7. Feedback & Reporting</h2>
+            <p>
+                To report concerns about AI behavior, bias, or accuracy, contact:
+                <strong>ai-ethics@reconity.tech</strong>
+            </p>
+        </div>
+
+        <div class="footer">
+            <img src="logo.png" alt="Reconity" style="width: 48px; opacity: 0.5; margin-bottom: 1rem;">
+            <p class="footer-text">© 2026 Reconity Technologies. All Rights Reserved.</p>
+        </div>
+    </div>
+</body>
+
+</html>

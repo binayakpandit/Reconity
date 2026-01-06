@@ -1,0 +1,146 @@
+flowchart TB
+    %% =========================
+    %% STYLING
+    %% =========================
+    classDef userClass fill:#4A90E2,stroke:#2E5C8A,stroke-width:3px,color:#fff
+    classDef orgClass fill:#7B68EE,stroke:#4B3A9E,stroke-width:3px,color:#fff
+    classDef adminClass fill:#E74C3C,stroke:#A73229,stroke-width:3px,color:#fff
+    classDef intelClass fill:#16A085,stroke:#0E6655,stroke-width:3px,color:#fff
+    classDef toolClass fill:#F39C12,stroke:#C87F0A,stroke-width:3px,color:#fff
+    classDef authClass fill:#9B59B6,stroke:#6C3A82,stroke-width:3px,color:#fff
+    classDef infraClass fill:#34495E,stroke:#1C2833,stroke-width:3px,color:#fff
+    classDef coreClass fill:#E84393,stroke:#B8336A,stroke-width:4px,color:#fff
+    classDef rpgClass fill:#00B894,stroke:#00846B,stroke-width:3px,color:#fff
+    classDef moduleClass fill:#2C3E50,stroke:#1A252F,stroke-width:2px,color:#fff
+    
+    %% =========================
+    %% EXTERNAL ACTORS
+    %% =========================
+    USER[End User<br/>Student<br/>Pentester<br/>SOC Analyst<br/>Bug Hunter]
+    ORG[Organization Client<br/>Asset Management<br/>Scope Definition<br/>Compliance Reports]
+    ADMIN[Platform Admin<br/>User Management<br/>System Monitoring<br/>Security Controls]
+    
+    %% =========================
+    %% EXTERNAL SYSTEMS
+    %% =========================
+    INTEL[External Threat Intelligence<br/>CVE Databases<br/>OSINT Sources<br/>Threat Feeds<br/>Security Advisories]
+    TOOLS[Security Tools Suite<br/>Nmap Nuclei<br/>Subfinder Masscan<br/>SQLMap Metasploit<br/>Custom Scripts]
+    AUTH_EXT[External Auth Services<br/>Email Verification<br/>2FA MFA<br/>OAuth Providers<br/>SAML SSO]
+    INFRA[Infrastructure Layer<br/>Cloud Services<br/>DNS Management<br/>CDN Load Balancers<br/>Container Orchestration]
+    
+    %% =========================
+    %% CORE PLATFORM EXPANDED
+    %% =========================
+    subgraph RECONITY["RECONITY PLATFORM - Integrated Cybersecurity Ecosystem"]
+        direction TB
+        
+        subgraph CORE_MODULES["Core Security Platform"]
+            direction LR
+            AUTH[Authentication<br/>and Authorization]
+            SCAN[Automated<br/>Scanning Engine]
+            VULN[Vulnerability<br/>Management]
+            REPORT[Reporting<br/>and Analytics]
+            API[REST API<br/>and Webhooks]
+        end
+        
+        subgraph RPG_MODULES["Cyber Odyssey RPG - Gamified Learning"]
+            direction LR
+            QUEST[Quest System<br/>and Challenges]
+            SKILL[Skill Tree<br/>and Progression]
+            LAB[Interactive<br/>Labs and CTFs]
+            SOCIAL[Community<br/>and Leaderboards]
+        end
+        
+        subgraph DATA_LAYER["Data and Intelligence Layer"]
+            direction LR
+            DB[(Database<br/>Assets and Users)]
+            CACHE[(Cache Layer<br/>Redis Memcached)]
+            QUEUE[Job Queue<br/>Background Tasks]
+        end
+        
+        CORE_MODULES --> DATA_LAYER
+        RPG_MODULES --> DATA_LAYER
+        
+    end
+    
+    %% =========================
+    %% USER INTERACTIONS - ENHANCED
+    %% =========================
+    USER -->|Login & Authentication| AUTH
+    USER -->|Launch Scans & Tests| SCAN
+    USER -->|Play & Learn| QUEST
+    USER -->|Access Labs & Training| LAB
+    USER -->|View Reports & Progress| REPORT
+    
+    ORG -->|Define Assets & Scope| SCAN
+    ORG -->|Request Compliance Reports| REPORT
+    ORG -->|Manage Team Access| AUTH
+    ORG -->|Configure Policies| VULN
+    
+    ADMIN -->|System Configuration| API
+    ADMIN -->|Monitor Platform Health| REPORT
+    ADMIN -->|User & Role Management| AUTH
+    ADMIN -->|Tool Integration| SCAN
+    
+    %% =========================
+    %% AUTHENTICATION FLOW
+    %% =========================
+    AUTH <-->|Verify Identity| AUTH_EXT
+    AUTH_EXT -->|OTP Magic Link| USER
+    AUTH_EXT -->|Token Validation| AUTH
+    
+    %% =========================
+    %% SCANNING & TOOL ORCHESTRATION
+    %% =========================
+    SCAN -->|Execute Controlled Scans| TOOLS
+    TOOLS -->|Raw Scan Data| SCAN
+    SCAN -->|Parse & Normalize| VULN
+    VULN -->|Store Findings| DB
+    SCAN -->|Queue Long-Running Tasks| QUEUE
+    
+    %% =========================
+    %% THREAT INTELLIGENCE INTEGRATION
+    %% =========================
+    INTEL -->|CVE Updates & Threat Data| VULN
+    INTEL -->|Security Advisories| REPORT
+    VULN -->|Correlation & Enrichment| INTEL
+    
+    %% =========================
+    %% RPG LEARNING MECHANICS
+    %% =========================
+    QUEST -->|Challenge Generation| LAB
+    LAB -->|Completion Validation| SKILL
+    SKILL -->|XP & Achievements| SOCIAL
+    SOCIAL -->|Leaderboard Updates| CACHE
+    LAB <-->|Spin Up Environments| INFRA
+    
+    %% =========================
+    %% INFRASTRUCTURE LAYER
+    %% =========================
+    API <-->|Deploy & Scale Services| INFRA
+    DB <-->|Persistent Storage| INFRA
+    CACHE <-->|Distributed Cache| INFRA
+    QUEUE <-->|Message Broker| INFRA
+    INFRA -->|Network & Compute| RECONITY
+    
+    %% =========================
+    %% REPORTING & ANALYTICS
+    %% =========================
+    REPORT -->|Generate Insights| DB
+    REPORT -->|Email Notifications| USER
+    REPORT -->|Export PDF JSON| ORG
+    REPORT -->|Alerting & Webhooks| API
+    
+    %% =========================
+    %% APPLY STYLES
+    %% =========================
+    class USER userClass
+    class ORG orgClass
+    class ADMIN adminClass
+    class INTEL intelClass
+    class TOOLS toolClass
+    class AUTH_EXT authClass
+    class INFRA infraClass
+    class AUTH,SCAN,VULN,REPORT,API moduleClass
+    class QUEST,SKILL,LAB,SOCIAL rpgClass
+    class DB,CACHE,QUEUE moduleClass

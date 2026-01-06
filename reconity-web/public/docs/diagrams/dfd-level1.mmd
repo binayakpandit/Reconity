@@ -1,0 +1,48 @@
+flowchart TB
+    classDef external fill:#4A90E2,stroke:#2E5C8A,stroke-width:2px,color:#fff
+    classDef process fill:#E84393,stroke:#B8336A,stroke-width:2px,color:#fff
+    classDef store fill:#16A085,stroke:#0E6655,stroke-width:2px,color:#fff
+    classDef queue fill:#F39C12,stroke:#C87F0A,stroke-width:2px,color:#fff
+
+    USER[End User]:::external
+    CRTSH[crt.sh API]:::external
+    TOOLS[Subfinder / Binaries]:::external
+
+    subgraph API_GATEWAY["API GATEWAY (Express)"]
+        AUTH_P[1.1 User Auth Process]:::process
+        TARGET_P[1.2 Target Mgmt Process]:::process
+        REPORT_P[1.3 Report Gen Process]:::process
+        SCAN_ORCH[1.4 Scan Orchestrator]:::process
+    end
+
+    subgraph WORKER_LAYER["SCAN WORKER (Node.js)"]
+        ACTIVE_P[2.1 Active Scan Process]:::process
+    end
+
+    DB[(SQLite / Prisma Store)]:::store
+    REDIS[Redis / BullMQ Queue]:::queue
+
+    %% Data Flows
+    USER -- Credentials --> AUTH_P
+    AUTH_P -- Token --> USER
+    AUTH_P -- Query/Write --> DB
+
+    USER -- Domain Input --> TARGET_P
+    TARGET_P -- Save Target --> DB
+    
+    TARGET_P -- Trigger Scan --> SCAN_ORCH
+    SCAN_ORCH -- Passive Request --> CRTSH
+    CRTSH -- Subdomains --> SCAN_ORCH
+    SCAN_ORCH -- Save Results --> DB
+
+    SCAN_ORCH -- Push Job --> REDIS
+    REDIS -- Pull Job --> ACTIVE_P
+    
+    ACTIVE_P -- Exec Subfinder --> TOOLS
+    TOOLS -- Subdomain List --> ACTIVE_P
+    ACTIVE_P -- Update Result --> DB
+    ACTIVE_P -- Set Status: COMPLETED --> DB
+
+    USER -- Req Report --> REPORT_P
+    REPORT_P -- Fetch Results --> DB
+    REPORT_P -- JSON/PDF --> USER
